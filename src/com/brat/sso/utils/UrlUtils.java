@@ -1,4 +1,4 @@
-package com.auth_server.auth_server.com.utils;
+package com.brat.sso.utils;
 
 import javax.servlet.http.HttpServletRequest;
 

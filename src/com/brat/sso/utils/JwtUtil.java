@@ -1,13 +1,15 @@
-package com.auth_server.auth_server.com.utils;
+package com.brat.sso.utils;
 
-import com.auth_server.auth_server.com.constant.KeyConstant;
-import com.auth_server.auth_server.com.model.JwtUser;
+
+import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.brat.sso.constant.KeyConstant;
+import com.brat.sso.model.JwtUser;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
 
 public class JwtUtil {
     public static String generateToken(String signingKey, JwtUser jwtUser) {
