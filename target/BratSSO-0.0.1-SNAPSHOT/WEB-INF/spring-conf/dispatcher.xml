@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:security="http://www.springframework.org/schema/security"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:mvc="http://www.springframework.org/schema/mvc"
+   xmlns:task="http://www.springframework.org/schema/task"
+   xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context.xsd
+   http://www.springframework.org/schema/mvc
+   http://www.springframework.org/schema/mvc/spring-mvc.xsd
+   http://www.springframework.org/schema/security
+   http://www.springframework.org/schema/security/spring-security.xsd
+   http://www.springframework.org/schema/task 
+    http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <!-- specifying the controller packages to scan for Spring MVC -->
+    <context:component-scan base-package="com.brat.sso.controllers"/>
+    
+    <!-- specifying the resource folder for MVC -->
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+    
+    <mvc:annotation-driven/>
+    
+    <!-- Specifying the interceptors class which is going to perform the action -->
+<!--     <mvc:interceptors> -->
+<!--     	<mvc:interceptor> -->
+<!--     		<mvc:mapping path="/**"/> -->
+<!--     		<mvc:exclude-mapping path="/resources/**"/> -->
+<!--         	<bean class="com.intranet.interceptors.MVCRequestInterceptors"></bean> -->
+<!--     	</mvc:interceptor> -->
+<!--     </mvc:interceptors> -->
+    
+    <!-- Instruction for resource view resolver and prefix and suffix for view pages -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+          <property name="prefix" value="/WEB-INF/views/" />
+          <property name="suffix" value=".jsp" />
+    </bean>
+   
+    
+    <!-- Configure apache tiles for layouts -->
+<!--     <bean id="tilesConfigurer"  class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">   -->
+<!--         <property name="definitions">   -->
+<!--             <list>   -->
+<!--                 <value>/WEB-INF/spring-conf/tiles.xml</value>   -->
+<!--             </list>   -->
+<!--         </property>   -->
+<!--         <property name="preparerFactoryClass" value="org.springframework.web.servlet.view.tiles3.SimpleSpringPreparerFactory "/> -->
+<!--     </bean>  -->
+    
+<!--     <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">   -->
+<!--         <property name="viewClass">   -->
+<!--             <value>   -->
+<!--                 org.springframework.web.servlet.view.tiles3.TilesView   -->
+<!--             </value>   -->
+<!--         </property>   -->
+<!--     </bean>  -->
+    
+    <!-- Specifying location for properties file -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>/WEB-INF/properties/application.properties</value>
+        </property>
+    </bean>
+    
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="/WEB-INF/properties/messages_en" />
+    </bean>
+    
+    <!--  For multipart file upload -->
+<!--     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> -->
+<!--         <property name="maxUploadSize" value="${upload.allowed.maxSize}" /> -->
+<!--     </bean>  -->
+   
+</beans>
