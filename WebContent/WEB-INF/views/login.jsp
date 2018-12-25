@@ -6,7 +6,7 @@
   </head>
   <body th:include="layout :: body" th:with="content=~{::content}">
     <div th:fragment="content">
-        <form name="f" th:action="@{/rest}" method="get">               
+        <form name="f" th:action="@{/login}" method="get">               
             <fieldset>
                 <legend>Please Login</legend>
                 <div th:if="${param.error}" class="alert alert-error">    
