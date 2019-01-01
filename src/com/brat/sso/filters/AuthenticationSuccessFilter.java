@@ -43,9 +43,6 @@ public class AuthenticationSuccessFilter
         	
              setDefaultTargetUrl("/");
         }
-       
-        
-       
         
         super.onAuthenticationSuccess(request, response, authentication);
     }

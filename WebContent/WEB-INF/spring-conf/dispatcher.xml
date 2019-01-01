@@ -26,13 +26,13 @@
     <mvc:annotation-driven/>
     
     <!-- Specifying the interceptors class which is going to perform the action -->
-<!--     <mvc:interceptors> -->
-<!--     	<mvc:interceptor> -->
-<!--     		<mvc:mapping path="/**"/> -->
-<!--     		<mvc:exclude-mapping path="/resources/**"/> -->
-<!--         	<bean class="com.intranet.interceptors.MVCRequestInterceptors"></bean> -->
-<!--     	</mvc:interceptor> -->
-<!--     </mvc:interceptors> -->
+    <mvc:interceptors>
+    	<mvc:interceptor>
+    		<mvc:mapping path="/**"/>
+    		<mvc:exclude-mapping path="/resources/**"/>
+        	<bean class="com.brat.sso.interceptors.MVCRequestInterceptors"></bean>
+    	</mvc:interceptor>
+    </mvc:interceptors>
     
     <!-- Instruction for resource view resolver and prefix and suffix for view pages -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

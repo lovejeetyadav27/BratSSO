@@ -12,10 +12,9 @@ import org.springframework.web.filter.GenericFilterBean;
 public class LovejeetFilter extends GenericFilterBean {
 
 	@Override
-	public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2)
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		System.out.println("in Lovejeet filter");
+		chain.doFilter(request, response);
 	}
- 
-   
 }
